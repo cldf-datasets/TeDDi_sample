@@ -1,0 +1,3 @@
+[submodule "raw/100LC"]
+	path = raw/100LC
+	url = git@github.com:100LC/100LC.git
