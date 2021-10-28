@@ -19,7 +19,7 @@ class Dataset(BaseDataset):
 
     def cmd_download(self, args):
         subprocess.check_call('git -C {} submodule update --remote'.format(self.dir.resolve()), shell=True)
-        subprocess.check_call('cd ./raw/100LC/Database/ && Rscript ./to_csv.R', shell=True)
+        subprocess.check_call('cd ./raw/100LC/Database/ && python load-database.py -f && Rscript sqlite_to_RData.R && Rscript to_csv.R', shell=True)
 
     def create_schema(self, ds):
         # values.csv
