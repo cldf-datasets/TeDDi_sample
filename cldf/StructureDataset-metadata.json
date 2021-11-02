@@ -13,7 +13,7 @@
         {
             "rdf:about": "git@github.com:cldf-datasets/100LC",
             "rdf:type": "prov:Entity",
-            "dc:created": "2abbe8c",
+            "dc:created": "b77b12d",
             "dc:title": "Repository"
         },
         {
@@ -47,7 +47,7 @@
     "tables": [
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#ValueTable",
-            "dc:extent": 80080,
+            "dc:extent": 23326,
             "tableSchema": {
                 "columns": [
                     {
@@ -89,122 +89,6 @@
                         "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#comment",
                         "required": false,
                         "name": "Comment"
-                    },
-                    {
-                        "dc:extent": "singlevalued",
-                        "datatype": "string",
-                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#contributionReference",
-                        "required": true,
-                        "name": "Corpus_ID"
-                    },
-                    {
-                        "datatype": "string",
-                        "name": "text_raw"
-                    },
-                    {
-                        "datatype": "string",
-                        "name": "label"
-                    },
-                    {
-                        "datatype": "string",
-                        "name": "text"
-                    },
-                    {
-                        "datatype": "string",
-                        "name": "translation"
-                    },
-                    {
-                        "datatype": "string",
-                        "name": "glossing"
-                    },
-                    {
-                        "datatype": "string",
-                        "name": "segmentation"
-                    },
-                    {
-                        "datatype": "string",
-                        "name": "phonological"
-                    },
-                    {
-                        "datatype": "string",
-                        "name": "morphomic"
-                    },
-                    {
-                        "datatype": "string",
-                        "name": "footnote"
-                    }
-                ],
-                "foreignKeys": [
-                    {
-                        "columnReference": [
-                            "Parameter_ID"
-                        ],
-                        "reference": {
-                            "resource": "parameters.csv",
-                            "columnReference": [
-                                "ID"
-                            ]
-                        }
-                    },
-                    {
-                        "columnReference": [
-                            "Corpus_ID"
-                        ],
-                        "reference": {
-                            "resource": "contributions.csv",
-                            "columnReference": [
-                                "ID"
-                            ]
-                        }
-                    },
-                    {
-                        "columnReference": [
-                            "Language_ID"
-                        ],
-                        "reference": {
-                            "resource": "languages.csv",
-                            "columnReference": [
-                                "ID"
-                            ]
-                        }
-                    },
-                    {
-                        "columnReference": [
-                            "Corpus_ID"
-                        ],
-                        "reference": {
-                            "resource": "contributions.csv",
-                            "columnReference": [
-                                "ID"
-                            ]
-                        }
-                    }
-                ],
-                "primaryKey": [
-                    "ID"
-                ]
-            },
-            "url": "values.csv"
-        },
-        {
-            "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#ParameterTable",
-            "dc:extent": 20,
-            "tableSchema": {
-                "columns": [
-                    {
-                        "datatype": {
-                            "base": "string",
-                            "format": "[a-zA-Z0-9_\\-]+"
-                        },
-                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
-                        "required": true,
-                        "name": "ID"
-                    },
-                    {
-                        "datatype": "string",
-                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#name",
-                        "required": false,
-                        "name": "Name"
                     },
                     {
                         "dc:extent": "singlevalued",
@@ -281,10 +165,32 @@
                 "foreignKeys": [
                     {
                         "columnReference": [
+                            "Parameter_ID"
+                        ],
+                        "reference": {
+                            "resource": "parameters.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    },
+                    {
+                        "columnReference": [
                             "Corpus_ID"
                         ],
                         "reference": {
                             "resource": "contributions.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    },
+                    {
+                        "columnReference": [
+                            "Language_ID"
+                        ],
+                        "reference": {
+                            "resource": "languages.csv",
                             "columnReference": [
                                 "ID"
                             ]
@@ -306,11 +212,201 @@
                     "ID"
                 ]
             },
+            "url": "values.csv"
+        },
+        {
+            "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#ExampleTable",
+            "dc:extent": 19886526,
+            "tableSchema": {
+                "columns": [
+                    {
+                        "datatype": {
+                            "base": "string",
+                            "format": "[a-zA-Z0-9_\\-]+"
+                        },
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+                        "required": true,
+                        "name": "ID"
+                    },
+                    {
+                        "dc:extent": "singlevalued",
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#languageReference",
+                        "required": true,
+                        "name": "Language_ID"
+                    },
+                    {
+                        "dc:description": "The example text in the source language.",
+                        "dc:extent": "singlevalued",
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#primaryText",
+                        "required": true,
+                        "name": "Primary_Text"
+                    },
+                    {
+                        "dc:description": "The sequence of glosses aligned with the words of the primary text",
+                        "dc:extent": "multivalued",
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#gloss",
+                        "required": false,
+                        "separator": "\\t",
+                        "name": "Gloss"
+                    },
+                    {
+                        "dc:description": "The translation of the example text in a meta language",
+                        "dc:extent": "singlevalued",
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#translatedText",
+                        "required": false,
+                        "name": "Translated_Text"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#comment",
+                        "required": false,
+                        "name": "Comment"
+                    },
+                    {
+                        "dc:extent": "singlevalued",
+                        "datatype": "string",
+                        "required": true,
+                        "name": "File_ID"
+                    },
+                    {
+                        "dc:extent": "singlevalued",
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#contributionReference",
+                        "required": true,
+                        "name": "Corpus_ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "text_raw"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "label"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "translation"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "segmentation"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "phonological"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "morphomic"
+                    },
+                    {
+                        "datatype": "string",
+                        "name": "footnote"
+                    }
+                ],
+                "foreignKeys": [
+                    {
+                        "columnReference": [
+                            "Corpus_ID"
+                        ],
+                        "reference": {
+                            "resource": "contributions.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    },
+                    {
+                        "columnReference": [
+                            "Language_ID"
+                        ],
+                        "reference": {
+                            "resource": "languages.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    },
+                    {
+                        "columnReference": [
+                            "File_ID"
+                        ],
+                        "reference": {
+                            "resource": "values.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    },
+                    {
+                        "columnReference": [
+                            "Corpus_ID"
+                        ],
+                        "reference": {
+                            "resource": "contributions.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    },
+                    {
+                        "columnReference": [
+                            "Language_ID"
+                        ],
+                        "reference": {
+                            "resource": "languages.csv",
+                            "columnReference": [
+                                "ID"
+                            ]
+                        }
+                    }
+                ],
+                "primaryKey": [
+                    "ID"
+                ]
+            },
+            "url": "examples.csv"
+        },
+        {
+            "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#ParameterTable",
+            "dc:extent": 23326,
+            "tableSchema": {
+                "columns": [
+                    {
+                        "datatype": {
+                            "base": "string",
+                            "format": "[a-zA-Z0-9_\\-]+"
+                        },
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#id",
+                        "required": true,
+                        "name": "ID"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#name",
+                        "required": false,
+                        "name": "Name"
+                    },
+                    {
+                        "datatype": "string",
+                        "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#description",
+                        "required": false,
+                        "name": "Description"
+                    }
+                ],
+                "primaryKey": [
+                    "ID"
+                ]
+            },
             "url": "parameters.csv"
         },
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#ContributionTable",
-            "dc:extent": 17,
+            "dc:extent": 137,
             "tableSchema": {
                 "columns": [
                     {

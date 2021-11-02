@@ -1,6 +1,7 @@
 import pathlib
 import subprocess
 import hashlib
+import csv
 from cldfbench import Dataset as BaseDataset
 from cldfbench import CLDFSpec
 
@@ -9,8 +10,8 @@ class Dataset(BaseDataset):
     dir = pathlib.Path(__file__).parent
     id = "100LC"
 
-    valueTableProperties = ['text_raw', 'label', 'text', 'translation', 'glossing', 'segmentation', 'phonological', 'morphomic', 'footnote']
-    parameterTableProperties = ['language_name_wals', 'language_name_glotto', 'iso639_3', 'year_composed', 'year_published', 'mode', 'genre_broad', 'genre_narrow', 'writing_system', 'special_characters', 'short_description', 'source', 'copyright_short', 'copyright_long', 'sample_type', 'comments']
+    exampleTableProperties = ['text_raw', 'label', 'translation', 'segmentation', 'phonological', 'morphomic', 'footnote']
+    valueTableProperties = ['language_name_wals', 'language_name_glotto', 'iso639_3', 'year_composed', 'year_published', 'mode', 'genre_broad', 'genre_narrow', 'writing_system', 'special_characters', 'short_description', 'source', 'copyright_short', 'copyright_long', 'sample_type', 'comments']
     contributionTableProperties = ['genre_broad', 'mode']
     languageTableProperties = ['wals_code', 'name_glotto', 'name_wals', 'level', 'status', 'family_id', 'top_level_family', 'genus_wals', 'family_wals', 'macroarea_wals', 'latitude_wals', 'longitude_wals', 'folder_language_name']
 
@@ -19,9 +20,31 @@ class Dataset(BaseDataset):
 
     def cmd_download(self, args):
         subprocess.check_call('git -C {} submodule update --remote'.format(self.dir.resolve()), shell=True)
-        subprocess.check_call('cd ./raw/100LC/Database/ && python load-database.py -f && Rscript sqlite_to_RData.R && Rscript to_csv.R', shell=True)
+        subprocess.check_call('cd ./raw/100LC/Database/ && python load-database.py && Rscript sqlite_to_RData.R && Rscript to_csv.R', shell=True)
 
     def create_schema(self, ds):
+        # examples.csv
+        ds.add_component('ExampleTable')
+        ds.remove_columns('ExampleTable', 'Analyzed_Word', 'Meta_Language_ID')
+        ds.add_columns(
+            'ExampleTable',
+            {
+                "dc:extent": "singlevalued",
+                "datatype": "string",
+                # "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#valueReference",
+                "required": True,
+                "name": "File_ID"
+            },
+            {
+                "dc:extent": "singlevalued",
+                "datatype": "string",
+                "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#contributionReference",
+                "required": True,
+                "name": "Corpus_ID"
+            },
+            *self.exampleTableProperties,
+        )
+
         # values.csv
         ds.remove_columns('ValueTable', 'Code_ID', 'Source')
         ds.add_columns(
@@ -36,20 +59,7 @@ class Dataset(BaseDataset):
             *self.valueTableProperties,
         )
 
-        # parameters.csv
         ds.add_component('ParameterTable')
-        ds.remove_columns('ParameterTable', 'Description')
-        ds.add_columns(
-            'ParameterTable',
-            {
-                "dc:extent": "singlevalued",
-                "datatype": "string",
-                "propertyUrl": "http://cldf.clld.org/v1.0/terms.rdf#contributionReference",
-                "required": True,
-                "name": "Corpus_ID"
-            },
-            *self.parameterTableProperties,
-        )
 
         # contributions.csv
         ds.add_component('ContributionTable')
@@ -63,8 +73,10 @@ class Dataset(BaseDataset):
         # languages.csv
         ds.add_component('LanguageTable', *self.languageTableProperties)
 
+        ds.add_foreign_key('ExampleTable', 'File_ID', 'ValueTable', 'ID')
+        ds.add_foreign_key('ExampleTable', 'Corpus_ID', 'ContributionTable', 'ID')
+        ds.add_foreign_key('ExampleTable', 'Language_ID', 'LanguageTable', 'ID')
         ds.add_foreign_key('ValueTable', 'Corpus_ID', 'ContributionTable', 'ID')
-        ds.add_foreign_key('ParameterTable', 'Corpus_ID', 'ContributionTable', 'ID')
         ds.add_foreign_key('ContributionTable', 'Language_ID', 'LanguageTable', 'ID')
 
     def cmd_makecldf(self, args):
@@ -98,7 +110,7 @@ class Dataset(BaseDataset):
                 **{ k: row[k] for k in self.contributionTableProperties}
             })
 
-        # parameters.csv
+        # values.csv
         for row in self.raw_dir.read_csv(
             self.raw_dir / '100LC' / 'Database' / 'file.csv',
             dicts=True,
@@ -108,30 +120,42 @@ class Dataset(BaseDataset):
                 if corpus['ID'] == row['corpus_id']:
                     current_corpus = corpus
 
-            args.writer.objects['ParameterTable'].append({
-                'ID': row['id'],
-                'Name': row['filename'],
-                'Corpus_ID': row['corpus_id'],
-                'Language_ID': current_corpus['Language_ID'],
-                **{ k: row[k] for k in self.parameterTableProperties}
-            })
-
-        # values.csv
-        for row in self.raw_dir.read_csv(
-            self.raw_dir / '100LC' / 'Database' / 'line.csv',
-            dicts=True,
-        ):
-            current_file = None
-            for file in args.writer.objects['ParameterTable']:
-                if file['ID'] == row['file_id']:
-                    current_file = file
-
             args.writer.objects['ValueTable'].append({
                 'ID': row['id'],
-                'Value': row['text'],
-                'Parameter_ID': row['file_id'],
-                'Corpus_ID': current_file['Corpus_ID'],
-                'Language_ID': current_file['Language_ID'],
-                'Comment': row['comment'],
+                'Value': row['filename'],
+                'Corpus_ID': row['corpus_id'],
+                'Language_ID': current_corpus['Language_ID'],
+                'Parameter_ID': row['id'],
                 **{ k: row[k] for k in self.valueTableProperties}
             })
+
+            args.writer.objects['ParameterTable'].append({
+                'ID': row['id'],
+            })
+
+        # examples.csv
+        valueMap = {}
+        for file in args.writer.objects['ValueTable']:
+            valueMap[file['ID']] = file
+
+        # WARNING: too large, won't fit into memory!
+        # for idx, row in enumerate(self.raw_dir.read_csv(
+        #     self.raw_dir / '100LC' / 'Database' / 'line.csv',
+        #     dicts=True,
+        # )):
+
+        with open('{}/100LC/Database/line.csv'.format(self.raw_dir), "r") as csvfile:
+            datareader = csv.DictReader(csvfile)
+            for row in datareader:
+                current_file = valueMap[row['file_id']]
+
+                args.writer.objects['ExampleTable'].append({
+                    'ID': row['id'],
+                    'Primary_Text': row['text'],
+                    'Gloss': row['glossing'],
+                    'File_ID': row['file_id'],
+                    'Corpus_ID': current_file['Corpus_ID'],
+                    'Language_ID': current_file['Language_ID'],
+                    'Comment': row['comment'],
+                    **{ k: row[k] for k in self.exampleTableProperties}
+                })

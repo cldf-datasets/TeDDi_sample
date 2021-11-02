@@ -5,7 +5,7 @@ ID,Name,Macroarea,Latitude,Longitude,Glottocode,ISO639P3code,wals_code,name_glot
 4,Apurina_apu,South America,-8.21692,-66.7714,apur1254,apu,apu,Apurinã,Apurinã,language,definitely endangered,araw1281,Arawakan,Purus,Arawakan,South America,-9,-67,Apurina
 5,Bagirmi_bmi,Africa,11.52392,14.769495,bagi1246,bmi,bag,Bagirmi,Bagirmi,language,safe,cent2225,Central Sudanic,Bongo-Bagirmi,Central Sudanic,Africa,11.6666666667,16,Bagirmi
 6,Barasano_bsn,South America,0.02193,-70.808,bara1380,bsn,brs,Barasana-Eduria,Barasano,language,definitely endangered,tuca1253,Tucanoan,Tucanoan,Tucanoan,South America,-0.1666666667,-70.6666666667,Barasano
-7,NA,Africa,4.67843,-8.09378,barc1235,gry,grb,Barclayville Grebo,Grebo,language,safe,atla1278,Atlantic-Congo,Kru,Niger-Congo,Africa,5,-8,NA
+7,Grebo_gry,Africa,4.67843,-8.09378,barc1235,gry,grb,Barclayville Grebo,Grebo,language,safe,atla1278,Atlantic-Congo,Kru,Niger-Congo,Africa,5,-8,Grebo
 8,Basque_eus,Eurasia,43.2787,-1.31622,basq1248,eus,bsq,Basque,Basque,language,vulnerable,,NA,Basque,Basque,Eurasia,43,-3,Basque
 9,Arapesh_Mountain_ape,Papunesia,-3.47169,143.111,buki1249,ape,arp,Bukiyip,Arapesh (Mountain),language,definitely endangered,nucl1708,Nuclear Torricelli,Kombio-Arapesh,Torricelli,Papunesia,-3.4666666667,143.166666667,Arapesh_Mountain
 10,Burushaski_bsk,Eurasia,36.2161,74.8236,buru1296,bsk,bur,Burushaski,Burushaski,language,definitely endangered,,NA,Burushaski,Burushaski,Eurasia,36.5,74.5,Burushaski
@@ -63,7 +63,7 @@ ID,Name,Macroarea,Latitude,Longitude,Glottocode,ISO639P3code,wals_code,name_glot
 62,Burmese_mya,Eurasia,20.7926,93.9665,nucl1310,mya,brm,Burmese,Burmese,language,definitely endangered,sino1245,Sino-Tibetan,Burmese-Lolo,Sino-Tibetan,Eurasia,21,96,Burmese
 63,Japanese_jpn,Eurasia,35,135,nucl1643,jpn,jpn,Japanese,Japanese,language,safe,japo1237,Japonic,Japanese,Japanese,Eurasia,37,140,Japanese
 64,NA,North America,43.438742,-75.708106,onei1249,one,ond,Oneida,Oneida,language,definitely endangered,iroq1247,Iroquoian,Northern Iroquoian,Iroquoian,North America,43,-75.6666666667,NA
-65,NA,Papunesia,22.3271,120.806,paiw1248,pwn,pai,Paiwan,Paiwan,language,vulnerable,aust1307,Austronesian,Paiwan,Austronesian,Papunesia,22.5,120.833333333,NA
+65,Paiwan_pwn,Papunesia,22.3271,120.806,paiw1248,pwn,pai,Paiwan,Paiwan,language,vulnerable,aust1307,Austronesian,Paiwan,Austronesian,Papunesia,22.5,120.833333333,Paiwan
 66,Guarani_gug,South America,-25.60551,-57.08816,para1311,gug,gua,Paraguayan Guaraní,Guaraní,language,safe,tupi1275,Tupian,Tupi-Guaraní,Tupian,South America,-26,-56,Guarani
 67,Piraha_myp,South America,-6.77713,-61.8167,pira1253,myp,prh,Pirahã,Pirahã,language,vulnerable,,NA,Mura,Mura,South America,-7,-62,Piraha
 68,Cree_Plains_crk,North America,51.2437,-110.463,plai1258,crk,cre,Plains Cree,Cree (Plains),language,severely endangered,algi1248,Algic,Algonquian,Algic,North America,54,-110,Cree_Plains
@@ -84,12 +84,12 @@ ID,Name,Macroarea,Latitude,Longitude,Glottocode,ISO639P3code,wals_code,name_glot
 83,Tagalog_tgl,Papunesia,14.06,121.747,taga1270,tgl,tag,Tagalog,Tagalog,language,safe,aust1307,Austronesian,Greater Central Philippine,Austronesian,Papunesia,15,121,Tagalog
 84,Asmat_tml,Papunesia,-5.57962,139.233,tamn1235,tml,asm,Tamnim Citak,Asmat,language,safe,nucl1709,Nuclear Trans New Guinea,Asmat-Kamoro,Trans-New Guinea,Papunesia,-5.5,138.5,Asmat
 85,Thai_tha,Eurasia,14.192,100.671,thai1261,tha,tha,Thai,Thai,language,safe,taik1256,Tai-Kadai,Kam-Tai,Tai-Kadai,Eurasia,16,101,Thai
-86,NA,Australia,-11.6308,130.949,tiwi1244,tiw,tiw,Tiwi,Tiwi,language,definitely endangered,,NA,Tiwian,Tiwian,Australia,-11.5,131,NA
+86,Tiwi_tiw,Australia,-11.6308,130.949,tiwi1244,tiw,tiw,Tiwi,Tiwi,language,definitely endangered,,NA,Tiwian,Tiwian,Australia,-11.5,131,Tiwi
 87,NA,Papunesia,-5.7478,123.948,tuka1249,bhq,tuk,Tukang Besi South,Tukang Besi,language,safe,aust1307,Austronesian,Celebic,Austronesian,Papunesia,-5.5,123.5,NA
 88,Vietnamese_vie,Eurasia,20.681188,105.774071,viet1252,vie,vie,Vietnamese,Vietnamese,language,safe,aust1305,Austroasiatic,Viet-Muong,Austro-Asiatic,Eurasia,10.5,106.5,Vietnamese
 89,Ngiyambaa_wyb,Australia,-30.6481,146.18,wang1291,wyb,ngi,Ngiyambaa,Ngiyambaa,language,critically endangered,pama1250,Pama-Nyungan,Southeastern Pama-Nyungan,Pama-Nyungan,Australia,-31.75,145.5,Ngiyambaa
 90,Warao_wba,South America,7.50851,-59.3528,wara1303,wba,wra,Warao,Warao,language,vulnerable,,NA,Warao,Warao,South America,9.3333333333,-61.6666666667,Warao
-91,NA,South America,-10.69948,-64.56152,wari1268,pav,war,Wari',Wari',language,definitely endangered,chap1271,Chapacuran,Chapacura-Wanham,Chapacura-Wanham,South America,-11.3333333333,-65,NA
+91,Wari_pav,South America,-10.69948,-64.56152,wari1268,pav,war,Wari',Wari',language,definitely endangered,chap1271,Chapacuran,Chapacura-Wanham,Chapacura-Wanham,South America,-11.3333333333,-65,Wari
 92,Persian_pes,Eurasia,28.659300000000002,55.1586,west2369,pes,prs,Western Farsi,Persian,language,safe,indo1319,Indo-European,Iranian,Indo-European,Eurasia,32,54,Persian
 93,Kewa_kew,Papunesia,-6.32097,143.73,west2599,kew,kew,West Kewa,Kewa,language,safe,nucl1709,Nuclear Trans New Guinea,Engan,Trans-New Guinea,Papunesia,-6.5,143.833333333,Kewa
 94,Acoma_kjq,North America,34.9733,-107.517,west2632,kjq,aco,Western Keres,Acoma,language,definitely endangered,kere1287,Keresan,Keresan,Keresan,North America,34.9166666667,-107.583333333,Acoma
