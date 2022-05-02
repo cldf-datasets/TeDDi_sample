@@ -13,7 +13,7 @@
         {
             "rdf:about": "git@github.com:cldf-datasets/100LC",
             "rdf:type": "prov:Entity",
-            "dc:created": "b77b12d",
+            "dc:created": "f9f6848",
             "dc:title": "Repository"
         },
         {
@@ -21,6 +21,12 @@
             "rdf:type": "prov:Entity",
             "dc:created": "v4.4-20-gf6531fcec3",
             "dc:title": "Glottolog"
+        },
+        {
+            "rdf:about": "git@github.com:MorphDiv/TeDDi_sample",
+            "rdf:type": "prov:Entity",
+            "dc:created": "aec615a1e",
+            "dc:title": "Repository"
         },
         {
             "rdf:about": "git@github.com:100LC/100LC",
@@ -39,7 +45,7 @@
             "dc:relation": "requirements.txt"
         }
     ],
-    "rdf:ID": "100LC",
+    "rdf:ID": "TeDDi_sample",
     "rdf:type": "http://www.w3.org/ns/dcat#Distribution",
     "dialect": {
         "commentPrefix": null
@@ -47,7 +53,7 @@
     "tables": [
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#ValueTable",
-            "dc:extent": 23326,
+            "dc:extent": 20,
             "tableSchema": {
                 "columns": [
                     {
@@ -216,7 +222,7 @@
         },
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#ExampleTable",
-            "dc:extent": 19886526,
+            "dc:extent": 80149,
             "tableSchema": {
                 "columns": [
                     {
@@ -373,7 +379,7 @@
         },
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#ParameterTable",
-            "dc:extent": 23326,
+            "dc:extent": 20,
             "tableSchema": {
                 "columns": [
                     {
@@ -406,7 +412,7 @@
         },
         {
             "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#ContributionTable",
-            "dc:extent": 137,
+            "dc:extent": 17,
             "tableSchema": {
                 "columns": [
                     {

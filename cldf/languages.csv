@@ -36,7 +36,7 @@ ID,Name,Macroarea,Latitude,Longitude,Glottocode,ISO639P3code,wals_code,name_glot
 35,NA,North America,30.4096,-92.709,koas1236,cku,koa,Koasati,Koasati,language,severely endangered,musk1252,Muskogean,Muskogean,Muskogean,North America,34.8333333333,-85.1666666667,NA
 36,Korean_kor,Eurasia,37.5,128,kore1280,kor,kor,Korean,Korean,language,safe,kore1284,Koreanic,Korean,Korean,Eurasia,37.5,128,Korean
 37,NA,Africa,16.9634,-0.55187,koyr1242,ses,kse,Koyraboro Senni Songhai,Koyraboro Senni,language,safe,song1307,Songhay,Songhay,Songhay,Africa,16,0,NA
-38,NA,Africa,10.514,30.003,kron1241,kgo,kro,Krongo,Krongo,language,vulnerable,kadu1256,Kadugli-Krongo,Kadugli,Kadu,Africa,10.5,30,NA
+38,Krongo_kgo,Africa,10.514,30.003,kron1241,kgo,kro,Krongo,Krongo,language,vulnerable,kadu1256,Kadugli-Krongo,Kadugli,Kadu,Africa,10.5,30,Krongo
 39,Kutenai_kut,North America,48.7892,-115.065,kute1249,kut,kut,Kutenai,Kutenai,language,severely endangered,,NA,Kutenai,Kutenai,North America,49.5,-116,Kutenai
 40,NA,North America,46.3699,-103.95,lako1247,lkt,lkt,Lakota,Lakhota,language,definitely endangered,siou1252,Siouan,Core Siouan,Siouan,North America,43.8333333333,-101.833333333,NA
 41,Lango_laj,Africa,2.13867,33.0553,lang1324,laj,lan,Lango (Uganda),Lango,language,safe,nilo1247,Nilotic,Nilotic,Eastern Sudanic,Africa,2.1666666667,33,Lango
@@ -79,7 +79,7 @@ ID,Name,Macroarea,Latitude,Longitude,Glottocode,ISO639P3code,wals_code,name_glot
 78,French_fra,Eurasia,48,2,stan1290,fra,fre,French,French,language,safe,indo1319,Indo-European,Romance,Indo-European,Eurasia,48,2,French
 79,English_eng,Eurasia,53,-1,stan1293,eng,eng,English,English,language,safe,indo1319,Indo-European,Germanic,Indo-European,Eurasia,52,0,English
 80,German_deu,Eurasia,48.649,12.4676,stan1295,deu,ger,German,German,language,safe,indo1319,Indo-European,Germanic,Indo-European,Eurasia,52,10,German
-81,NA,Africa,11.632,-5.87709,supy1237,spp,sup,Supyire Senoufo,Supyire,language,safe,atla1278,Atlantic-Congo,Gur,Niger-Congo,Africa,11.5,-5.5833333333,NA
+81,Supyire_spp,Africa,11.632,-5.87709,supy1237,spp,sup,Supyire Senoufo,Supyire,language,safe,atla1278,Atlantic-Congo,Gur,Niger-Congo,Africa,11.5,-5.5833333333,Supyire
 82,Swahili_swh,Africa,-8.25605,37.624,swah1253,swh,swa,Swahili,Swahili,language,definitely endangered,atla1278,Atlantic-Congo,Bantoid,Niger-Congo,Africa,-6.5,39,Swahili
 83,Tagalog_tgl,Papunesia,14.06,121.747,taga1270,tgl,tag,Tagalog,Tagalog,language,safe,aust1307,Austronesian,Greater Central Philippine,Austronesian,Papunesia,15,121,Tagalog
 84,Asmat_tml,Papunesia,-5.57962,139.233,tamn1235,tml,asm,Tamnim Citak,Asmat,language,safe,nucl1709,Nuclear Trans New Guinea,Asmat-Kamoro,Trans-New Guinea,Papunesia,-5.5,138.5,Asmat

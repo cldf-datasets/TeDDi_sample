@@ -8,7 +8,7 @@ from cldfbench import CLDFSpec
 
 class Dataset(BaseDataset):
     dir = pathlib.Path(__file__).parent
-    id = "100LC"
+    id = "TeDDi_sample"
 
     exampleTableProperties = ['text_raw', 'label', 'translation', 'segmentation', 'phonological', 'morphomic', 'footnote']
     valueTableProperties = ['language_name_wals', 'language_name_glotto', 'iso639_3', 'year_composed', 'year_published', 'mode', 'genre_broad', 'genre_narrow', 'writing_system', 'special_characters', 'short_description', 'source', 'copyright_short', 'copyright_long', 'sample_type', 'comments']
@@ -20,7 +20,7 @@ class Dataset(BaseDataset):
 
     def cmd_download(self, args):
         subprocess.check_call('git -C {} submodule update --remote'.format(self.dir.resolve()), shell=True)
-        subprocess.check_call('cd ./raw/100LC/Database/ && python load-database.py && Rscript sqlite_to_RData.R && Rscript to_csv.R', shell=True)
+        subprocess.check_call('cd ./raw/TeDDi_sample/Database/ && python load-database.py && Rscript sqlite_to_RData.R && Rscript to_csv.R', shell=True)
 
     def create_schema(self, ds):
         # examples.csv
@@ -84,7 +84,7 @@ class Dataset(BaseDataset):
             
         # languages.csv
         for row in self.raw_dir.read_csv(
-            self.raw_dir / '100LC' / 'Database' / 'language.csv',
+            self.raw_dir / 'TeDDi_sample' / 'Database' / 'language.csv',
             dicts=True,
         ):
             args.writer.objects['LanguageTable'].append({
@@ -100,7 +100,7 @@ class Dataset(BaseDataset):
 
         # contributions.csv
         for row in self.raw_dir.read_csv(
-            self.raw_dir / '100LC' / 'Database' / 'corpus.csv',
+            self.raw_dir / 'TeDDi_sample' / 'Database' / 'corpus.csv',
             dicts=True,
         ):
             args.writer.objects['ContributionTable'].append({
@@ -112,7 +112,7 @@ class Dataset(BaseDataset):
 
         # values.csv
         for row in self.raw_dir.read_csv(
-            self.raw_dir / '100LC' / 'Database' / 'file.csv',
+            self.raw_dir / 'TeDDi_sample' / 'Database' / 'file.csv',
             dicts=True,
         ):
             current_corpus = None
@@ -140,11 +140,11 @@ class Dataset(BaseDataset):
 
         # WARNING: too large, won't fit into memory!
         # for idx, row in enumerate(self.raw_dir.read_csv(
-        #     self.raw_dir / '100LC' / 'Database' / 'line.csv',
+        #     self.raw_dir / 'TeDDi_sample' / 'Database' / 'line.csv',
         #     dicts=True,
         # )):
 
-        with open('{}/100LC/Database/line.csv'.format(self.raw_dir), "r") as csvfile:
+        with open('{}/TeDDi_sample/Database/line.csv'.format(self.raw_dir), "r") as csvfile:
             datareader = csv.DictReader(csvfile)
             for row in datareader:
                 current_file = valueMap[row['file_id']]
