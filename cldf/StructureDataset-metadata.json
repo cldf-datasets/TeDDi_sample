@@ -6,14 +6,14 @@
         }
     ],
     "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#StructureDataset",
-    "dc:identifier": "https://github.com/100LC/100LC",
-    "dc:title": "100LC",
+    "dc:identifier": "https://github.com/MorphDiv/TeDDi_sample",
+    "dc:title": "TeDDi_sample",
     "dcat:accessURL": "git@github.com:cldf-datasets/100LC",
     "prov:wasDerivedFrom": [
         {
             "rdf:about": "git@github.com:cldf-datasets/100LC",
             "rdf:type": "prov:Entity",
-            "dc:created": "f9f6848",
+            "dc:created": "adce224",
             "dc:title": "Repository"
         },
         {
@@ -26,12 +26,6 @@
             "rdf:about": "git@github.com:MorphDiv/TeDDi_sample",
             "rdf:type": "prov:Entity",
             "dc:created": "aec615a1e",
-            "dc:title": "Repository"
-        },
-        {
-            "rdf:about": "git@github.com:100LC/100LC",
-            "rdf:type": "prov:Entity",
-            "dc:created": "37fd17a54",
             "dc:title": "Repository"
         }
     ],

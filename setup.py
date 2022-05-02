@@ -2,13 +2,13 @@ from setuptools import setup
 
 
 setup(
-    name='cldfbench_100LC',
-    py_modules=['cldfbench_100LC'],
+    name='cldfbench_TeDDi_sample',
+    py_modules=['cldfbench_TeDDi_sample'],
     include_package_data=True,
     zip_safe=False,
     entry_points={
         'cldfbench.dataset': [
-            '100LC=cldfbench_100LC:Dataset',
+            'TeDDi_sample=cldfbench_TeDDi_sample:Dataset',
         ]
     },
     install_requires=[

@@ -1,4 +1,4 @@
-# 100LC
+# TeDDi_sample
 
 ## How to cite
 
@@ -8,7 +8,7 @@ this dataset using the DOI of the [particular released version](../../releases/)
 ## Description
 
 
-Available online at https://github.com/100LC/100LC
+Available online at https://github.com/MorphDiv/TeDDi_sample
 
 
 ## CLDF Datasets
