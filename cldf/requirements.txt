@@ -2,7 +2,7 @@ appdirs==1.4.4
 bs4==0.0.1
 certifi==2021.5.30
 cldfbench==1.7.2
--e git+https://github.com/cldf-datasets/100LC@#egg=cldfbench_TeDDi_sample
+-e git+git@github.com:cldf-datasets/TeDDi_sample.git@91091b4b7e658d8f9a4ecce3afb4e6025d0db962#egg=cldfbench_TeDDi_sample
 cldfcatalog==1.3.2
 clldutils==3.9.0
 colorlog==5.0.1

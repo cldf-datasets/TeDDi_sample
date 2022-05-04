@@ -8,12 +8,12 @@
     "dc:conformsTo": "http://cldf.clld.org/v1.0/terms.rdf#StructureDataset",
     "dc:identifier": "https://github.com/MorphDiv/TeDDi_sample",
     "dc:title": "TeDDi_sample",
-    "dcat:accessURL": "git@github.com:cldf-datasets/100LC",
+    "dcat:accessURL": "git@github.com:cldf-datasets/TeDDi_sample",
     "prov:wasDerivedFrom": [
         {
-            "rdf:about": "git@github.com:cldf-datasets/100LC",
+            "rdf:about": "git@github.com:cldf-datasets/TeDDi_sample",
             "rdf:type": "prov:Entity",
-            "dc:created": "adce224",
+            "dc:created": "91091b4",
             "dc:title": "Repository"
         },
         {
