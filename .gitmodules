@@ -1,0 +1,3 @@
+[submodule "raw/TeDDi_sample"]
+	path = raw/TeDDi_sample
+	url = git@github.com:MorphDiv/TeDDi_sample
